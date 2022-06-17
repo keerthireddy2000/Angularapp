@@ -1,0 +1,16 @@
+steps:
+
+  # Install node packages
+  - name: "gcr.io/cloud-builders/npm:latest"
+    args: ["install"]
+    dir: "AngularApp"
+
+  # Build production package
+  - name: "gcr.io/{projectId}/ng"
+    args: ["build", "--prod"]
+    dir: "AngularApp"
+
+  # Deploy to google cloud app engine
+  - name: "gcr.io/cloud-builders/gcloud"
+    args: ["app", "deploy", "--version=prod"]
+    dir: "AngularApp"
