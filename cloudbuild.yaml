@@ -6,7 +6,7 @@ steps:
     dir: "AngularApp"
 
   # Build production package
-  - name: "gcr.io/CAP/ng"
+  - name: "gcr.io/AngularApp/ng"
     args: ["build", "--prod"]
     dir: "AngularApp"
 
